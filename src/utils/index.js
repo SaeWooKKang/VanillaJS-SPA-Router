@@ -1,11 +1,12 @@
 import { routes } from '../index.js';
+import NotFound from '../pages/NotFound.js';
 
 export const $ = selector => document.querySelector(selector);
 
 export const router = (routes, path) => {
   const component = routes
     .find(route => route.path === path)
-    .component;
+    ?.component || NotFound;
   
   $('.app').innerHTML = '';
   $('.app').append(component());
