@@ -5,7 +5,7 @@ export const $ = selector => document.querySelector(selector);
 
 export const router = (routes, path) => {
   const component = routes
-    .find(route => route.path === path)
+    .find(route => route.path.test(path))
     ?.component || NotFound;
   
   $('.app').innerHTML = '';

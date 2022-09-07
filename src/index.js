@@ -4,8 +4,8 @@ import Main from "./pages/Main.js";
 import { router } from "./utils/index.js";
 
 export const routes = [
-  { path: '/', component: Landing },
-  { path: '/main', component: Main },
+  { path: /^\/$/, component: Landing },
+  { path: /^\/main$/, component: Main },
 ];
 
 router(routes, window.location.pathname);
