@@ -9,3 +9,7 @@ export const routes = [
 ];
 
 router(routes, window.location.pathname);
+
+window.addEventListener('popstate', () => 
+  router(routes, window.location.pathname)
+);
