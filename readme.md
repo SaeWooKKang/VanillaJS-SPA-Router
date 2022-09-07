@@ -57,10 +57,11 @@ function MainPage() {
 #### routes
 
 경로와 해당 경로의 컴포넌트를 저장하는 자료구조
+- 'posts/1', 'posts/2' 등의 path에 대응 하기 위해 regExp 적용
 ``` javascript
 const routes = [
-  { path: '/', component: LandingPage },
-  { path: '/main', component: MainPage },
+  { path: /^\/$/, component: Landing },
+  { path: /^\/main$/, component: Main },
 ];
 ```
 
@@ -72,7 +73,7 @@ const routes = [
 ``` javascript
 export const router = (routes, path) => {
   const component = routes
-    .find(route => route.path === path)
+    .find(route => route.path.test(path))
     .component;
   
   $('.app').innerHTML = '';
